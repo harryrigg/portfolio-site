@@ -38,7 +38,7 @@ const showcase = forwardRef<HTMLElement>(function Showcase(_, ref) {
   return (
     <div className="bg-neutral-950 lg:h-[calc(100vh+200px)]">
       <main
-        className="grid gap-[1px] bg-zinc-800 lg:h-screen lg:grid-cols-2 lg:grid-rows-2"
+        className="grid gap-[1px] border-t border-zinc-800 bg-zinc-800 lg:h-screen lg:grid-cols-2 lg:grid-rows-2 lg:border-t-0"
         ref={ref}
       >
         {projects.map((project) => (
