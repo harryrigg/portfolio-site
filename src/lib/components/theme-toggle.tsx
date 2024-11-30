@@ -58,6 +58,7 @@ export default function ThemeToggle({ className }: Props) {
   return (
     <button
       onClick={onToggle}
+      aria-label="Toggle dark/light mode"
       className={cn(
         "relative z-10 h-6 w-12 rounded-full border border-neutral-400 dark:border-neutral-600",
         className,
