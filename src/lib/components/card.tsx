@@ -1,9 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@uidotdev/usehooks";
 
 type Props = {
   title: string;
@@ -22,16 +19,13 @@ export default function Card({
   className,
   children,
 }: Props) {
-  const canHover = useMediaQuery("(pointer: fine)");
-
   return (
     <section className={cn("group relative bg-zinc-950", className)}>
       <figure
         className={cn(
           "absolute inset-0",
-          canHover
-            ? "opacity-100 transition-opacity group-hover:opacity-20"
-            : "opacity-20",
+          "opacity-100 transition-opacity group-hover:opacity-20",
+          "[@media_not_(pointer:fine)]:opacity-20",
         )}
       >
         <Image
@@ -48,9 +42,8 @@ export default function Card({
           "z-5 absolute left-0 top-0 mx-[20%] h-full",
           "flex flex-col justify-center gap-2",
           "text-zinc-200",
-          canHover
-            ? "opacity-0 transition-opacity group-hover:opacity-100"
-            : "opacity-100",
+          "opacity-0 transition-opacity group-hover:opacity-100",
+          "[@media_not_(pointer:fine)]:opacity-100",
         )}
       >
         <h3>{title}</h3>

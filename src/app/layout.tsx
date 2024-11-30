@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import ThemeToggle from "@/lib/components/theme-toggle";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "@/lib/components/theme-toggle";
 
 const fantasqueSansMono = localFont({
   src: [

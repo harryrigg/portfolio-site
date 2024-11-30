@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { animated, useSpring } from "@react-spring/web";
 import { cn } from "@/lib/utils";
 import { LucideProps, Moon, Sun } from "lucide-react";
-import { useLocalStorage, useMediaQuery } from "@uidotdev/usehooks";
+import { useLocalStorage, useMediaQuery } from "usehooks-ts";
 
 type Props = {
   className?: string;
