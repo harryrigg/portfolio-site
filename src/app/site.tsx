@@ -67,7 +67,7 @@ export default function Site() {
 
   return (
     <div
-      className={cn("lg:h-screen lg:overflow-hidden")}
+      className="lg:h-screen lg:overflow-hidden"
       onWheel={hijackScroll ? handleScroll : undefined}
       onTouchStart={hijackScroll ? handleTouchStart : undefined}
       onTouchMove={hijackScroll ? handleTouchMove : undefined}
