@@ -32,7 +32,7 @@ export default function Landing({ showIndicator }: Props) {
 
       <div
         className={cn(
-          "absolute bottom-5 flex -translate-x-1/2 animate-bounce items-center gap-3 transition-opacity",
+          "absolute bottom-5 flex -translate-x-1/2 animate-bounce items-center gap-3 transition-opacity duration-500",
           showIndicator ? "opacity-100" : "opacity-0",
         )}
       >
