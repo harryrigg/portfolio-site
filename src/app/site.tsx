@@ -1,7 +1,7 @@
 "use client";
 
 import { animated, useSpring } from "@react-spring/web";
-import { TouchEvent, useRef, useState, WheelEvent } from "react";
+import { TouchEvent, useEffect, useRef, useState, WheelEvent } from "react";
 import Landing from "./landing";
 import Showcase from "./showcase";
 import { cn } from "@/lib/utils";
@@ -10,6 +10,7 @@ import { useMediaQuery } from "usehooks-ts";
 export default function Site() {
   const [currentPage, setCurrentPage] = useState<0 | 1>(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [scrollY, setScrollY] = useState(0);
   const hijackScroll = useMediaQuery("(min-width: 1024px)");
 
   const showcaseRef = useRef<HTMLDivElement | null>(null);
@@ -18,6 +19,13 @@ export default function Site() {
     transform: `translateY(-${currentPage * 100}vh)`,
     config: { tension: 100, friction: 16 },
   });
+
+  useEffect(() => {
+    const handler = () => setScrollY(window.scrollY);
+
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
   const handleScroll = (e: WheelEvent) => {
     if (currentPage === 0) {
@@ -65,7 +73,7 @@ export default function Site() {
       onTouchMove={hijackScroll ? handleTouchMove : undefined}
     >
       <animated.div style={scrollAnimationSpring}>
-        <Landing />
+        <Landing showIndicator={scrollY === 0} />
         <Showcase ref={showcaseRef} />
       </animated.div>
     </div>

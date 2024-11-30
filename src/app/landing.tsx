@@ -1,7 +1,12 @@
+import { cn } from "@/lib/utils";
 import { SiGithub, SiLinkedin } from "@icons-pack/react-simple-icons";
 import { ArrowDown } from "lucide-react";
 
-export default function Landing() {
+type Props = {
+  showIndicator: boolean;
+};
+
+export default function Landing({ showIndicator }: Props) {
   const socialIconsProps = {
     size: 32,
     className: "hover:-translate-y-1 transition-transform",
@@ -25,7 +30,12 @@ export default function Landing() {
         </a>
       </div>
 
-      <div className="absolute bottom-5 flex -translate-x-1/2 animate-bounce items-center gap-3">
+      <div
+        className={cn(
+          "absolute bottom-5 flex -translate-x-1/2 animate-bounce items-center gap-3 transition-opacity",
+          showIndicator ? "opacity-100" : "opacity-0",
+        )}
+      >
         <ArrowDown /> Scroll down to view my projects
       </div>
     </header>
