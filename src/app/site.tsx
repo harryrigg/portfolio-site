@@ -4,7 +4,6 @@ import { animated, useSpring } from "@react-spring/web";
 import { TouchEvent, useEffect, useRef, useState, WheelEvent } from "react";
 import Landing from "./landing";
 import Showcase from "./showcase";
-import { cn } from "@/lib/utils";
 import { useMediaQuery } from "usehooks-ts";
 
 export default function Site() {
