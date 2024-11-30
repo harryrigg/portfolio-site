@@ -1,4 +1,5 @@
 import Card from "@/lib/components/card";
+import { forwardRef } from "react";
 
 const projects = [
   {
@@ -33,10 +34,13 @@ const projects = [
   },
 ];
 
-export default function Showcase() {
+const showcase = forwardRef<HTMLElement>(function Showcase(_, ref) {
   return (
-    <>
-      <main className="relative grid gap-[1px] bg-zinc-800 lg:h-screen lg:grid-cols-2 lg:grid-rows-2">
+    <div className="bg-neutral-950 lg:h-[calc(100vh+200px)]">
+      <main
+        className="grid gap-[1px] bg-zinc-800 lg:h-screen lg:grid-cols-2 lg:grid-rows-2"
+        ref={ref}
+      >
         {projects.map((project) => (
           <Card
             key={project.title}
@@ -50,6 +54,8 @@ export default function Showcase() {
           </Card>
         ))}
       </main>
-    </>
+    </div>
   );
-}
+});
+
+export default showcase;

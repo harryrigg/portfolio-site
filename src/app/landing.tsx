@@ -8,7 +8,7 @@ export default function Landing() {
   };
 
   return (
-    <header className="relative flex h-screen flex-col items-center justify-center">
+    <header className="relative flex h-svh flex-col items-center justify-center">
       <h1 className="mb-6">Harry Rigg</h1>
       <h4>Full Stack Web Developer</h4>
       <h4>Software Engineering Student</h4>

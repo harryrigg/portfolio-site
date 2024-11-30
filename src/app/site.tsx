@@ -4,10 +4,13 @@ import { animated, useSpring } from "@react-spring/web";
 import { TouchEvent, useRef, useState, WheelEvent } from "react";
 import Landing from "./landing";
 import Showcase from "./showcase";
+import { cn } from "@/lib/utils";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function Site() {
   const [currentPage, setCurrentPage] = useState<0 | 1>(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
+  const hijackScroll = useMediaQuery("(min-width: 1024px)");
 
   const showcaseRef = useRef<HTMLDivElement | null>(null);
 
@@ -56,17 +59,14 @@ export default function Site() {
 
   return (
     <div
-      className="h-screen overflow-hidden"
-      onWheel={handleScroll}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
+      className={cn("lg:h-screen lg:overflow-hidden")}
+      onWheel={hijackScroll ? handleScroll : undefined}
+      onTouchStart={hijackScroll ? handleTouchStart : undefined}
+      onTouchMove={hijackScroll ? handleTouchMove : undefined}
     >
       <animated.div style={scrollAnimationSpring}>
         <Landing />
-        <div className="relative h-screen overflow-y-auto" ref={showcaseRef}>
-          <Showcase />
-        </div>
-        <div className="h-[500px] bg-neutral-950"></div>
+        <Showcase ref={showcaseRef} />
       </animated.div>
     </div>
   );
