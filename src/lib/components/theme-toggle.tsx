@@ -4,20 +4,16 @@ import { useEffect, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
 import { cn } from "@/lib/utils";
 import { LucideProps, Moon, Sun } from "lucide-react";
-import { useLocalStorage, useMediaQuery } from "usehooks-ts";
+import { useIsClient, useLocalStorage, useMediaQuery } from "usehooks-ts";
 
 type Props = {
   className?: string;
 };
 
 export default function ThemeToggle({ className }: Props) {
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isClient = useIsClient();
 
   const systemPrefersDark = useMediaQuery("(prefers-color-scheme: dark)");
-
   const [theme, setTheme] = useLocalStorage<"light" | "dark">("theme", () =>
     systemPrefersDark ? "dark" : "light",
   );
@@ -54,7 +50,7 @@ export default function ThemeToggle({ className }: Props) {
     opacity: progress.to((p) => Math.max((p - 0.5) * 2, 0)),
   };
 
-  if (!isMounted) return null;
+  if (!isClient) return null;
   return (
     <button
       onClick={onToggle}
