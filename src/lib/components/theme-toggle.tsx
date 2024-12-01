@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { animated, useSpring } from "@react-spring/web";
 import { cn } from "@/lib/utils";
 import { LucideProps, Moon, Sun } from "lucide-react";
