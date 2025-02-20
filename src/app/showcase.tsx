@@ -3,6 +3,14 @@ import { forwardRef } from "react";
 
 const projects = [
   {
+    title: "InvSuite",
+    imageName: "invsuite.png",
+    siteHref: "https://invsuite.harryrigg.com",
+    githubHref: "https://github.com/harryrigg/invsuite",
+    description:
+      "Inventory management application built with Laravel and NextJS",
+  },
+  {
     title: "NoteLocker",
     imageName: "notelocker.png",
     siteHref: "https://notelocker.harryrigg.com",
@@ -23,14 +31,6 @@ const projects = [
     siteHref: "https://wordle.harryrigg.com",
     githubHref: "https://github.com/harryrigg/react_wordle",
     description: "Clone of the popular New York Times game, made using React",
-  },
-  {
-    title: "Calculator",
-    imageName: "calculator.png",
-    siteHref: "https://svelte-calculator.harryrigg.com",
-    githubHref: "https://github.com/harryrigg/svelte_calculator",
-    description:
-      "Simple calculator with design and behaviour inspired by the MacOS calculator app",
   },
 ];
 
