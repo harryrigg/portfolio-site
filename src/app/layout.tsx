@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -47,6 +48,7 @@ export default function RootLayout({
       >
         <ThemeToggle className="absolute right-2 top-2" />
         {children}
+        <Analytics />
       </body>
     </html>
   );
